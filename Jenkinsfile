@@ -7,18 +7,10 @@ pipeline {
 	     git 'https://github.com/sushmaaws/pipeline.git'
 	    }
 	}	
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
-            }
-        }
 
         stage ('Build') {
             steps {
-		    sh 'mvn -Dmaven.test.failure.ignore=true install'
+		   sh "${MAVEN_HOME}/bin/mvn clean package -Dmaven.test.skip=true"
             }
 	}
         stage ('Deploy') {
