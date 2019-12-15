@@ -28,7 +28,7 @@ pipeline {
 		    steps {
 			
 			sh 'cp /tmp/maven/sushma-maven/target/sushma-maven-1.0-SNAPSHOT.jar /opt/tomcat/webapps'
-			
+                        sh 'echo "finish"'			
 			}
         }
     }
