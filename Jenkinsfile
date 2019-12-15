@@ -24,12 +24,12 @@ pipeline {
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
+	}
         stage ('Deploy') {
 		    steps {
 			
 			sh 'cp /tmp/maven/sushma-maven/target/sushma-maven-1.0-SNAPSHOT.jar /opt/tomcat/webapps'
-                        sh 'echo "finish"'			
+			    
 			}
         }
     }
-}
