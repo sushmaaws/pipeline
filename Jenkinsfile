@@ -5,6 +5,12 @@ pipeline {
         jdk 'jdk8'
     }
     stages {
+	    
+	stage ('checkout') {    
+	    steps {
+	     git 'https://github.com/sushmaaws/pipeline.git'
+	    }
+	}	
         stage ('Initialize') {
             steps {
                 sh '''
