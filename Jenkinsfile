@@ -1,13 +1,11 @@
 pipeline {
 	agent any
-    stages {
-	    
+    stages {    
 	stage ('checkout') {    
 	    steps {
 	     git 'https://github.com/sushmaaws/pipeline.git'
 	    }
 	}	
-
         stage ('Build') {
             steps {
 		   sh "${MAVEN_HOME}/bin/mvn clean package -Dmaven.test.skip=true"
